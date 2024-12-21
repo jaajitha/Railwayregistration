@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Railway Reservation System</h1>
+    <form id="reservationForm">
+        <div class="form-group">
+            <label for="name">Passenger Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name">
+        </div>
+        
+        <div class="form-group">
+            <label for="train">Select Train:</label>
+            <select id="train" name="train" required>
+                <option value="train1">Express Train - 101</option>
+                <option value="train2">Superfast Train - 102</option>
+                <option value="train3">Local Train - 103</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="date">Travel Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="seats">Number of Seats:</label>
+            <input type="number" id="seats" name="seats" required min="1" max="10" placeholder="Enter number of seats">
+        </div>
+        
+        <div class="form-group">
+            <label for="seatType">Seat Preference:</label>
+            <select id="seatType" name="seatType" required>
+                <option value="sleeper">Sleeper</option>
+                <option value="ac">AC</option>
+                <option value="firstClass">First Class</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Reserve Ticket</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const train = document.getElementById('train').value;
+        const date = document.getElementById('date').value;
+        const seats = document.getElementById('seats').value;
+        const seatType = document.getElementById('seatType').value;
+        
+        alert(`Reservation Successful!\n\nPassenger Name: ${name}\nTrain: ${train}\nTravel Date: ${date}\nSeats: ${seats}\nSeat Type: ${seatType}`);
+        
+        // Clear form after submission
+        document.getElementById('reservationForm').reset();
+    });
+</script>
+
+</body>
+</html>
